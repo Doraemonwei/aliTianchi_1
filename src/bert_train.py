@@ -7,14 +7,14 @@ from tqdm import tqdm
 def bert_model_train():
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print('模型训练使用的是：{}'.format(device))
-    loader = my_loader(r"IMCS-DAC/IMCS-DAC_train.json", batch_size=64, is_train=True)
+    loader = my_loader(r"IMCS-DAC/IMCS-DAC_train.json", batch_size=128, is_train=True)
     model = MBertModel().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
     criterion = torch.nn.CrossEntropyLoss()
     model.train()
     Epochs = 4
     for epoch in range(Epochs):
-        print('目前正在跑第{:.0f}/{:.0f}轮'.format(epoch + 1, Epochs + 1))
+        print('目前正在跑第{:.0f}/{:.0f}轮'.format(epoch + 1, Epochs))
         for i, (input_ids, attention_mask, token_type_ids, labels) in tqdm(enumerate(loader), total=len(loader)):
             input_ids = input_ids.to(device)
             attention_mask = attention_mask.to(device)

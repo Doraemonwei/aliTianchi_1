@@ -3,11 +3,7 @@ import torch
 import os
 import requests
 
-
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-
-
-
 
 pretrained = BertModel.from_pretrained("src/model/bert_base_Chinese").to(device)
 
