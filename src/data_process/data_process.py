@@ -11,7 +11,7 @@ if not os.path.exists('src/model/bert_base_Chinese/pytorch_model.bin'):
     print('pytorch_model 文件不存在，正在下载')
     url = 'https://huggingface.co/bert-base-chinese/resolve/main/pytorch_model.bin'
     r = requests.get(url)
-    with open('src/model/bert_base_Chinese/pytorch_model.bin', 'rb') as f:
+    with open('src/model/bert_base_Chinese/pytorch_model.bin', 'wb') as f:
         f.write(r.content)
         f.close()
 tokenizer = AutoTokenizer.from_pretrained("src/model/bert_base_Chinese")
