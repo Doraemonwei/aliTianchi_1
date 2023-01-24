@@ -3,7 +3,17 @@ import torch
 from data_analysis import data_analysis
 from transformers import AutoTokenizer
 import random
+import os
+import requests
 
+# 检查pytorch_model.bin在不在src/model/bert_base_Chinese/ 中，如果不在则下载下来
+if not os.path.exists('src/model/bert_base_Chinese/pytorch_model.bin'):
+    print('pytorch_model 文件不存在，正在下载')
+    url = 'https://huggingface.co/bert-base-chinese/resolve/main/pytorch_model.bin'
+    r = requests.get(url)
+    with open('src/model/bert_base_Chinese/pytorch_model.bin', 'rb') as f:
+        f.write(r.content)
+        f.close()
 tokenizer = AutoTokenizer.from_pretrained("src/model/bert_base_Chinese")
 
 
