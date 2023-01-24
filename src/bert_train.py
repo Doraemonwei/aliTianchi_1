@@ -12,7 +12,7 @@ def bert_model_train():
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3)
     criterion = torch.nn.CrossEntropyLoss()
     model.train()
-    Epochs = 4
+    Epochs = 15
     for epoch in range(Epochs):
         print('目前正在跑第{:.0f}/{:.0f}轮'.format(epoch + 1, Epochs))
         for i, (input_ids, attention_mask, token_type_ids, labels) in tqdm(enumerate(loader), total=len(loader)):
