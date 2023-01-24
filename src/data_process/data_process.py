@@ -1,7 +1,7 @@
 from torch.utils.data import DataLoader
 import torch
 from data_analysis import data_analysis
-from transformers import AutoTokenizer, AutoModelForMaskedLM
+from transformers import AutoTokenizer
 import random
 
 tokenizer = AutoTokenizer.from_pretrained("src/model/bert_base_Chinese")

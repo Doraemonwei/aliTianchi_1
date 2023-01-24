@@ -1,6 +1,6 @@
 import torch
-from data_process.data_process import my_loader
-from model.bert_Model import MBertModel
+from src.data_process.data_process import my_loader
+from src.model.bert_Model import MBertModel
 from tqdm import tqdm
 
 
